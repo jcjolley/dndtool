@@ -9,6 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'add', component: AddPlayerComponent
+  },
+  {
+    path: '',
+    redirectTo: '/roll',
+    pathMatch: 'full'
   }
 ];
 
