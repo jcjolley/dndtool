@@ -54,7 +54,7 @@ async function main() {
     await getPlayers();
     await getPlayer('Aydin');
 
-    app.listen(3000, () => {
+    app.listen(3007, () => {
         console.log('Server started on 3007');
     })
 
