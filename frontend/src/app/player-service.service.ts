@@ -4,22 +4,26 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class PlayerService {
-  players
+  players = [];
   constructor(private http: HttpClient) { 
     this.getPlayers();
   }
 
   async getPlayers() {
-    const url = 'http://localhost:3000/players';
+    const url = 'http://localhost:3007/players';
     this.http.get(url).subscribe((x: any[]) => {
-      this.players = x.map(({name, skills, saves}) => {return {name, skills, saves}});
+      try {
+        this.players = x.map(({name, skills, saves}) => {return {name, skills, saves}}); 
+      } catch (e) {
+        console.log('Error while getting players')
+      }
     })
   }
 
   async addPlayer(player: Player) {
     this.players.push(player);
     console.log("Player is: ",  player );
-    const url = 'http://localhost:3000/add'
+    const url = 'http://localhost:3007/add'
     this.http.post(url, player ).subscribe(x => {
       console.log('The post happened');});
   }

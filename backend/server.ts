@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://jcjolley.com:27017/mydb";
+var url = "mongodb://localhost:27017";
 import { Player } from "../common/player";
 const express = require('express');
 const app = express();
@@ -55,7 +55,7 @@ async function main() {
     await getPlayer('Aydin');
 
     app.listen(3000, () => {
-        console.log('Server started on 3000');
+        console.log('Server started on 3007');
     })
 
     app.use(function (req, res, next) {

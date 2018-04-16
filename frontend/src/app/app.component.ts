@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlayerService } from './player-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.styl']
 })
 export class AppComponent {
-  title = 'app';
+  constructor(private playerService: PlayerService) {};
 }
