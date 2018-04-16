@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017";
+var url = "mongodb://localhost:27017/dnd";
 import { Player } from "../common/player";
 const express = require('express');
 const app = express();
@@ -59,8 +59,9 @@ async function main() {
     })
 
     app.use(function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Origin", "http://localhost:80");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         next();
     });
 
