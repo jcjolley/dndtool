@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">
+      <button class="float-right btn btn-danger" (click)="deleteMe()">&times;</button>
+        <h3 style="text-align: left">{{player.name}}</h3>
+      </div>
+
+      <div *ngFor="let skill of generateKeyArray(player.skills)">
+        <div class="row mb-2">
+          <div class="col-3" style="text-align: left">{{skill | titlecase}}: {{player.skills[skill]}}</div>
+          <div class="col-3">
+            <div class="row">
+              <div class="col-2">
+                <button class="btn btn-sm m-0" (click)="rollSkill(skill)">R</button>
+              </div>
+              <div class="col-2">
+                <button class="btn btn-sm m-0" (click)="rollSkillAdvantage(skill)">A</button>
+              </div>
+              <div class="col-2">
+                <button class="btn btn-sm m-0" (click)="rollSkillDisadvantage(skill)">D</button>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="results[skill]" class="col-3" style="text-align: left">Last Roll: {{results[skill]}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

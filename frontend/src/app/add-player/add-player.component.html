@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <div class="row">
+      <div class="col-3">
+        <label>Name</label>
+      </div>
+      <div class="col-2">
+        <input class="form-control" [(ngModel)]="player.name">
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let skill of generateKeyArray(player.skills)">
+    <div class="row">
+      <div class="col-3">
+        <label>{{skill | titlecase}}</label>
+      </div>
+      <div class="col-2">
+        <input class="form-control" [(ngModel)]="player.skills[skill]" type="number" />
+      </div>
+    </div>
+  </div>
+  <button (click)="playerService.addPlayer(player)">Add Player</button>
+</div>

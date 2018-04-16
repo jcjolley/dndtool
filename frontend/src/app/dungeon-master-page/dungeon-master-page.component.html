@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let player of playerService.players">
+      <div class="col">
+        <button class="btn btn-info" (click)="selected = selected === player.name ? null : player.name">{{player.name}}</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let player of playerService.players">
+    <app-roll-player [hidden]="player.name !== selected" [player]="player"></app-roll-player>
+  </div>
+</div>
