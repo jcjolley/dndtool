@@ -41,7 +41,7 @@ async function getPlayer(name) {
             if (err) throw err;
             const dbo = db.db("dnd")
             dbo.collection("players").findOne({ name }, (err, result) => {
-                if (err) reject(err);
+                if (err) throw err;
                 db.close();
                 resolve(result);
             });
@@ -59,7 +59,7 @@ async function main() {
     })
 
     app.use(function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "http://localhost:80");
+        res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         next();
