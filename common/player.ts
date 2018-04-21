@@ -20,7 +20,7 @@ export class Player {
         performance: 0,
         persuasion: 0
     }
-    saves: {
+    saves = {
         str: 0,
         dex: 0,
         con: 0,
@@ -28,10 +28,12 @@ export class Player {
         wis: 0,
         cha: 0
     }
+    userId = 'a bustedId';
 
-    constructor (name, skills?, saves?) {
+    constructor (name, skills?, saves?, userId?) {
         this.name = name || "Bob";
         this.skills = skills || this.skills;
         this.saves = saves || this.saves;
+        this.userId = userId || this.userId;
     }
 }

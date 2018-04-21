@@ -10,13 +10,16 @@ import { RollPlayerComponent } from './roll-player/roll-player.component';
 import { AddPlayerComponent } from './add-player/add-player.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DungeonMasterPageComponent,
     RollPlayerComponent,
-    AddPlayerComponent
+    AddPlayerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule
   ],
   providers: [
-    PlayerService
+    PlayerService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

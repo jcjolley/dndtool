@@ -14,7 +14,7 @@ export class RollPlayerComponent implements OnInit {
 
   constructor(private playerService: PlayerService) { }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   rollSkill(skill: string) {
     const dice = skillToDice(this.player.skills[skill]);
@@ -34,8 +34,10 @@ export class RollPlayerComponent implements OnInit {
   generateKeyArray(obj) {
     return Object.keys(obj)
   }
+
   deleteMe() {
     const index = this.playerService.players.findIndex(x => x.name === this.player.name);
     this.playerService.players.splice(index, 1);
+    this.playerService.removePlayer(this.player);
   }
 }
