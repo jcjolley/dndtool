@@ -17,7 +17,7 @@
       <label>Password: </label>
     </div>
     <div class="col-8">
-      <input type="password" class="form-control" [(ngModel)]="password">
+      <input type="password" class="form-control" [(ngModel)]="password" (keyup.enter)="isLogin ? login() : createUser()">
     </div>
   </div>
   <div *ngIf="isLogin" class="mt-3">

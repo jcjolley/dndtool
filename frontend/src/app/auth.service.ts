@@ -18,7 +18,7 @@ export class AuthService implements CanActivate{
 
   async login(username: string, password: string) {
     const hashedPword = sha256.x2('sosalty' + password);
-    const url = `http://localhost:3007/login`;
+    const url = `http://jcjolley.com:3007/login`;
     const user = await this.http.post<{username, password, _id}>(url, {username, password: hashedPword}).toPromise();
     if (!user) {
       throw new Error('Login failed.')
@@ -31,7 +31,7 @@ export class AuthService implements CanActivate{
 
   async createUser(username: string, password: string) {
     const hashedPword = sha256.x2('sosalty' + password);
-    const url = `http://localhost:3007/createUser`;
+    const url = `http://jcjolley.com:3007/createUser`;
     const valid = await this.http.post(url, {username, password: hashedPword}).toPromise();
     if (!valid) {
       throw new Error('Failed to create user.  User already exists.');
